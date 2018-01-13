@@ -1,0 +1,28 @@
+﻿#main {
+    position: absolute;
+    top: 60px; /* Header Height */
+    bottom: 50px; /* Footer Height */
+    width: 100%;
+    height: auto;
+    background:
+    /* top, transparent grey, faked with gradient */
+    linear-gradient( rgba(96,96,96,0.4), rgba(255, 255, 255,0.1),#fff,#f0f0f0,#f6f7f6,#f9f7f0,#fff), url(../../Content/images/sammy-404.gif) no-repeat;
+    background-attach: cover;
+    backround-size: 100% cover;
+}
+
+#footer {
+    height: 250px;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    color: #666;
+    background-color: transparent;
+    /* background:-webkit-linear-gradient(center 15%,left,transparent 15%,rgba(0,0,0,0.139) 15%,white 15%;white 15%,rgba(0,0,0,0.139) 15%,transparent 15%);
+        /*  background: radial-gradient(center 20px, circle, #616161 0%, #616161 20%, #282828 100%);*/
+    text-align: center;
+}
+
+#txt {
+    font-size: 42px;
+}

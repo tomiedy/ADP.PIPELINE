@@ -1,0 +1,250 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - ADP Project</title>
+    <!--Loading bootstrap css-->
+    <link type="text/css" rel="stylesheet" href="~/Content/css/font-open-sans.css" />
+    <link type="text/css" rel="stylesheet" href="~/Content/css/font-oswald.css" />
+    <link type="text/css" rel="stylesheet"
+          href="~/Content/vendors/jquery-ui-1.10.4.custom/css/ui-lightness/jquery-ui-1.10.4.custom.min.css">
+    <link type="text/css" rel="stylesheet" href="~/Content/vendors/font-awesome/css/font-awesome.min.css">
+    <link type="text/css" rel="stylesheet" href="~/Content/vendors/bootstrap/css/bootstrap.min.css">
+    <!--LOADING STYLESHEET FOR PAGE-->
+    <link type="text/css" rel="stylesheet" href="~/Content/vendors/intro.js/introjs.css">
+    <link type="text/css" rel="stylesheet" href="~/Content/vendors/calendar/zabuto_calendar.min.css">
+    <link type="text/css" rel="stylesheet" href="~/Content/vendors/intro.js/introjs.css">
+    <!--Loading style vendors-->
+    <link type="text/css" rel="stylesheet" href="~/Content/vendors/lightbox/css/lightbox.css" />
+    <link type="text/css" rel="stylesheet" href="~/Content/vendors/animate.css/animate.min.css">
+    <link type="text/css" rel="stylesheet" href="~/Content/vendors/iCheck/skins/all.css">
+    <link type="text/css" rel="stylesheet" href="~/Content/vendors/jquery-notific8/jquery.notific8.min.css">
+    <link type="text/css" rel="stylesheet" href="~/Content/vendors/bootstrap-datepicker/css/datepicker.css" />
+    <link type="text/css" rel="stylesheet" href="~/Content/vendors/bootstrap-daterangepicker/daterangepicker-bs3.css">
+    <link type="text/css" rel="stylesheet" href="~/Content/vendors/bootstrap-select/bootstrap-select.min.css">
+    <!--Loading style-->
+    <link type="text/css" rel="stylesheet" href="~/Content/css/themes/style1/blue-grey.css" class="default-style">
+    <link type="text/css" rel="stylesheet" href="~/Content/css/themes/style1/blue-grey.css" id="theme-change"
+          class="style-change color-change">
+    <link type="text/css" rel="stylesheet" href="~/Content/css/style-responsive.min.css">
+    <link type="text/css" rel="stylesheet" href="~/Scripts/jqueryalert/jquery.alerts.css" />
+    <link type="text/css" rel="stylesheet" href="~/Content/vendors/nprogress-master/nprogress.css" />
+    <link rel="icon" type="image/png" href="~/Content/images/icons/favicon.ico" />
+  
+    @RenderSection("StyleSection", false)
+</head>
+<body>
+    <div>
+        <!--BEGIN BACK TO TOP--><a id="totop" href="#"><i class="fa fa-angle-up"></i></a><!--END BACK TO TOP-->
+        <!--BEGIN TOPBAR-->
+        <div id="header-topbar-option-demo" class="page-header-topbar">
+            <nav id="topbar" role="navigation" style="margin-bottom: 0; z-index: 2;"
+                 class="navbar navbar-default navbar-static-top">
+                <div class="navbar-header">
+                    <button type="button" data-toggle="collapse" data-target=".sidebar-collapse" class="navbar-toggle">
+                        <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+                    </button>
+                    <a id="logo" href="~/Home/Index" class="navbar-brand">
+                        <span class="fa fa-rocket"></span><span style="font-size:24px!important" class="logo-text">ADP Project</span><span style="display: none" class="logo-text-icon"><i class="fa fa-user"></i></span>
+                    </a>
+                </div>
+                <div class="topbar-main">
+                    <a id="menu-toggle" href="#" class="hidden-xs"><i class="fa fa-bars"></i></a>
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="#">Dashboard</a></li>
+                        <li>
+                            <a href="javascript:;" data-toggle="dropdown" class="dropdown-toggle">
+                                Layouts
+                                &nbsp;<i class="fa fa-angle-down"></i>
+                            </a>
+                        </li>
+
+                    </ul>
+                    <ul class="nav navbar navbar-top-links navbar-right mbn">
+                        <li class="dropdown topbar-user">
+                            <a data-hover="dropdown" href="#" class="dropdown-toggle">
+                                <img src="~/Content/images/logosby_zpswrgtqfms.png" alt=""
+                                     class="img-responsive img-circle" />&nbsp;<span class="hidden-xs">
+                                   ADMIN
+                                </span>&nbsp;<span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu dropdown-user pull-right">
+                                <li><a href="#"><i class="fa fa-key"></i>Log Out</a></li>
+                            </ul>
+                        </li>
+
+                    </ul>
+                </div>
+            </nav>
+
+        </div>
+        <!--END TOPBAR-->
+        <div id="wrapper">
+            <!--BEGIN SIDEBAR MENU-->
+            <nav id="sidebar" role="navigation" class="navbar-default navbar-static-side">
+                <div class="sidebar-collapse menu-scroll">
+                    <ul id="side-menu" class="nav">
+                        <li class="user-panel">
+                            <div class="thumb">
+                                <img src="~/Content/images/logosby_zpswrgtqfms.png"
+                                     alt="" class="img-circle" />
+                            </div>
+                            <div class="info">
+                                <p>ADMIN</p>
+                                <ul class="list-inline list-unstyled">
+                                    <li>
+                                        <a href="#" data-hover="tooltip" title="Profile">
+                                            <i class="fa fa-user"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" data-hover="tooltip" title="Setting"><i class="fa fa-cog"></i></a>
+                                    </li>
+                                    <li>
+                                        <a href="~/Account/LogOff" data-hover="tooltip" title="Logout">
+                                            <i class="fa fa-sign-out"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="clearfix"></div>
+                        </li>
+                        <!-- Sidebar Menu-->
+                        @foreach (ADP.Mvc.Flan.EnhancedMenu.NavigationItem item in ADPProject.Models.NavigationModels.DataSource.Where(i => i.Parent == null && i.Visible))
+                        {
+                            string navHrefParent = "#";
+                            if (!string.IsNullOrEmpty(item.ActionName))
+                            {
+                                navHrefParent = Url.Action(item.ActionName, item.ControllerName);
+                            }
+                            string varClassParent = "";
+                            if (ADP.Mvc.Flan.Helpers.LocationHelper.IsCurrentControllerAndAction(item.ControllerName, item.ActionName, ViewContext))
+                            {
+                                varClassParent = "active";
+                            }
+
+                            if (string.IsNullOrEmpty(varClassParent))
+                            {
+                                foreach (ADP.Mvc.Flan.EnhancedMenu.NavigationItem itemActive in
+                                    ADPProject.Models.NavigationModels.DataSource.Where(j => j.Parent != null && j.Parent.Id == item.Id && j.Visible))
+                                {
+                                    if (ADP.Mvc.Flan.Helpers.LocationHelper.IsCurrentControllerAndAction(itemActive.ControllerName, itemActive.ActionName, ViewContext))
+                                    {
+                                        varClassParent = "active";
+                                    }
+                                }
+                            }
+
+                            <li class="@varClassParent">
+                                <a href="@navHrefParent">
+                                    <i class="@item.IconBootstrap">
+                                        <div class="icon-bg bg-orange"></div>
+                                    </i>
+                                    <span class="menu-title">@item.Text</span>
+                                    @if (ADPProject.Models.NavigationModels.DataSource.Where(k => k.Parent != null && k.Parent.Id == item.Id).Count() > 0)
+                                    {
+                                        <span class="fa-arrow"></span>
+                                    }
+                                </a>
+                                @if (ADPProject.Models.NavigationModels.DataSource.Where(k => k.Parent != null && k.Parent.Id == item.Id).Count() > 0)
+                                {
+                                    <ul class="nav nav-second-level">
+                                        @foreach (ADP.Mvc.Flan.EnhancedMenu.NavigationItem itemLvChild in
+ADPProject.Models.NavigationModels.DataSource.Where(j => j.Parent != null && j.Parent.Id == item.Id && j.Visible))
+                                        {
+                                            string navHrefChild = "#";
+                                            if (!string.IsNullOrEmpty(itemLvChild.ActionName))
+                                            {
+                                                navHrefChild = Url.Action(itemLvChild.ActionName, itemLvChild.ControllerName);
+                                            }
+                                            string varClassChild = "";
+                                            if (ADP.Mvc.Flan.Helpers.LocationHelper.IsCurrentControllerAndAction(itemLvChild.ControllerName, itemLvChild.ActionName, ViewContext))
+                                            {
+                                                varClassChild = "active";
+                                            }
+                                            <li class="@varClassChild">
+                                                <a href="@navHrefChild">
+                                                    <i class="@itemLvChild.IconBootstrap">
+                                                        <div class="icon-bg bg-orange"></div>
+                                                    </i>
+                                                    <span class="menu-title">@itemLvChild.Text</span>
+                                                </a>
+                                            </li>
+                                        }
+                                    </ul>
+                                }
+                            </li>
+                        }
+                        <!--END Sidebar Menu-->
+                        <!--li.charts-sum<div id="ajax-loaded-data-sidebar"></div>-->
+                    </ul>
+                </div>
+            </nav>
+            <!--END SIDEBAR MENU-->
+            @RenderBody()
+        </div>
+        <!--BEGIN FOOTER-->
+        <div id="footer">
+            <div class="copyright">©2017 ADP Project</div>
+        </div>
+        <!--END FOOTER--><!--END PAGE WRAPPER-->
+    </div>
+
+    <script type="text/javascript" src="~/Scripts/js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/js/jquery-migrate-1.2.1.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/js/jquery-ui.js"></script>
+    <!--loading bootstrap js-->
+    <script type="text/javascript" src="~/Content/vendors/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="~/Content/vendors/bootstrap-hover-dropdown/bootstrap-hover-dropdown.js"></script>
+    <script type="text/javascript" src="~/Scripts/js/html5shiv.js"></script>
+    <script type="text/javascript" src="~/Scripts/js/respond.min.js"></script>
+    <script type="text/javascript" src="~/Content/vendors/metisMenu/jquery.metisMenu.js"></script>
+    <script type="text/javascript" src="~/Content/vendors/slimScroll/jquery.slimscroll.js"></script>
+    <script type="text/javascript" src="~/Content/vendors/jquery-cookie/jquery.cookie.js"></script>
+    <script type="text/javascript" src="~/Content/vendors/iCheck/icheck.min.js"></script>
+    <script type="text/javascript" src="~/Content/vendors/iCheck/custom.min.js"></script>
+    <script type="text/javascript" src="~/Content/vendors/jquery-notific8/jquery.notific8.min.js"></script>
+    <script type="text/javascript" src="~/Content/vendors/jquery-highcharts/highcharts.js"></script>
+    <script type="text/javascript" src="~/Scripts/js/jquery.menu.js"></script>
+    <script type="text/javascript" src="~/Scripts/jquery.validate.js"></script>
+    <script type="text/javascript" src="~/Content/vendors/holder/holder.js"></script>
+    <script type="text/javascript" src="~/Content/vendors/responsive-tabs/responsive-tabs.js"></script>
+    <script type="text/javascript" src="~/Content/vendors/jquery-news-ticker/jquery.newsTicker.min.js"></script>
+    <script type="text/javascript" src="~/Content/vendors/moment/moment.js"></script>
+    <script type="text/javascript" src="~/Content/vendors/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+    <script type="text/javascript" src="~/Content/vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
+    <script type="text/javascript" src="~/Content/vendors/bootstrap-select/bootstrap-select.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/jquery.validate.js"></script>
+    <!--CORE JAVASCRIPT-->
+    <script type="text/javascript" src="~/Scripts/js/main.js"></script>
+    <script type="text/javascript" src="~/Scripts/js/ui-dropdown-select.js"></script>
+    <!--LOADING SCRIPTS FOR PAGE-->
+    <script type="text/javascript" src="~/Content/vendors/intro.js/intro.js"></script>
+    <script type="text/javascript" src="~/Content/vendors/calendar/zabuto_calendar.min.js"></script>
+    <script type="text/javascript" src="~/Content/vendors/jquery-lightbox/js/lightbox.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/jqueryalert/jquery.alerts.js"></script>
+    <script type="text/javascript" src="~/Content/vendors/nprogress-master/nprogress.js"></script>
+    <script type="text/javascript" src="~/Scripts/jquery.BlockUi.js"></script>
+    @*<script type="text/javascript" src="~/Scripts/jsPdf.js"></script>*@
+    <script type="text/javascript">
+        NProgress.start();
+
+        // Increase randomly
+        var interval = setInterval(function () { NProgress.inc(); }, 5000);
+
+        // Trigger finish when page fully loaded
+        jQuery(window).load(function () {
+            clearInterval(interval);
+            NProgress.done();
+        });
+
+        // Trigger bar when exiting the page
+        jQuery(window).unload(function () {
+            NProgress.start();
+        });
+    </script>
+    @RenderSection("ScriptSection", false)
+</body>
+</html>
+@*}*@
