@@ -1,0 +1,58 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ADPProject", "AGDProject\ADPProject.csproj", "{3042677F-142F-4E10-A617-33ABF2C64D86}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ADP.CommandAdapter", "AGD.CommandAdapter\ADP.CommandAdapter.csproj", "{6A55F78C-F2C1-45F7-9A95-FD1764BCB4F3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ADP.Encryption", "AGD.Encryption\ADP.Encryption.csproj", "{4594897A-08AD-4BD0-968B-DE15E585BE72}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ADP.BusinessLogic", "AGD.BusinessLogic\ADP.BusinessLogic.csproj", "{04DEE3E0-002D-4D0F-9753-537BEA0FCD64}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ADP.DataAccess", "AGD.DataAccess\ADP.DataAccess.csproj", "{3FCA131D-3F80-422D-858A-1C6DFE7C67EC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ADP.Mvc.Flan", "AGD.MVC.FLAN\ADP.Mvc.Flan.csproj", "{806F11AF-2787-4132-B258-DFDB1DD57E5B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ADP.Membership", "AGD.Membership\ADP.Membership.csproj", "{6930E262-67BF-418E-B21B-2263654828C8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3042677F-142F-4E10-A617-33ABF2C64D86}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3042677F-142F-4E10-A617-33ABF2C64D86}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3042677F-142F-4E10-A617-33ABF2C64D86}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3042677F-142F-4E10-A617-33ABF2C64D86}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6A55F78C-F2C1-45F7-9A95-FD1764BCB4F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A55F78C-F2C1-45F7-9A95-FD1764BCB4F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A55F78C-F2C1-45F7-9A95-FD1764BCB4F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A55F78C-F2C1-45F7-9A95-FD1764BCB4F3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4594897A-08AD-4BD0-968B-DE15E585BE72}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4594897A-08AD-4BD0-968B-DE15E585BE72}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4594897A-08AD-4BD0-968B-DE15E585BE72}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4594897A-08AD-4BD0-968B-DE15E585BE72}.Release|Any CPU.Build.0 = Release|Any CPU
+		{04DEE3E0-002D-4D0F-9753-537BEA0FCD64}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{04DEE3E0-002D-4D0F-9753-537BEA0FCD64}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{04DEE3E0-002D-4D0F-9753-537BEA0FCD64}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{04DEE3E0-002D-4D0F-9753-537BEA0FCD64}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3FCA131D-3F80-422D-858A-1C6DFE7C67EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3FCA131D-3F80-422D-858A-1C6DFE7C67EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3FCA131D-3F80-422D-858A-1C6DFE7C67EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3FCA131D-3F80-422D-858A-1C6DFE7C67EC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{806F11AF-2787-4132-B258-DFDB1DD57E5B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{806F11AF-2787-4132-B258-DFDB1DD57E5B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{806F11AF-2787-4132-B258-DFDB1DD57E5B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{806F11AF-2787-4132-B258-DFDB1DD57E5B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6930E262-67BF-418E-B21B-2263654828C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6930E262-67BF-418E-B21B-2263654828C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6930E262-67BF-418E-B21B-2263654828C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6930E262-67BF-418E-B21B-2263654828C8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
