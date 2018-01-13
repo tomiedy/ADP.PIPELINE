@@ -9,7 +9,7 @@ namespace ADPProject.Controllers
     public class HomeController : Controller
     {
         public ActionResult Index()
-        {
+        { ADAD
             return View();
         }
 
