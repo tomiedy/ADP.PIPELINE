@@ -1,0 +1,5 @@
+F:\Project\AGDProject\AGD.BusinessLogic\bin\Debug\AGD.BusinessLogic.dll
+F:\Project\AGDProject\AGD.BusinessLogic\bin\Debug\AGD.BusinessLogic.pdb
+F:\Project\AGDProject\AGD.BusinessLogic\obj\Debug\AGD.BusinessLogic.dll
+F:\Project\AGDProject\AGD.BusinessLogic\obj\Debug\AGD.BusinessLogic.pdb
+F:\Project\AGDProject\AGD.BusinessLogic\obj\Debug\AGD.BusinessLogic.csprojResolveAssemblyReference.cache

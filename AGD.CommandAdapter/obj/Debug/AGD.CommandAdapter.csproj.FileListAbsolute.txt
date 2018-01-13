@@ -1,0 +1,4 @@
+F:\Project\AGDProject\AGD.CommandAdapter\bin\Debug\AGD.CommandAdapter.dll
+F:\Project\AGDProject\AGD.CommandAdapter\bin\Debug\AGD.CommandAdapter.pdb
+F:\Project\AGDProject\AGD.CommandAdapter\obj\Debug\AGD.CommandAdapter.dll
+F:\Project\AGDProject\AGD.CommandAdapter\obj\Debug\AGD.CommandAdapter.pdb

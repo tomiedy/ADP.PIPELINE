@@ -1,0 +1,13 @@
+F:\Project\AGDProject\AGD.Membership\bin\Debug\AGD.Membership.dll
+F:\Project\AGDProject\AGD.Membership\bin\Debug\AGD.Membership.pdb
+F:\Project\AGDProject\AGD.Membership\bin\Debug\AGD.BusinessLogic.dll
+F:\Project\AGDProject\AGD.Membership\bin\Debug\AGD.CommandAdapter.dll
+F:\Project\AGDProject\AGD.Membership\bin\Debug\AGD.DataAccess.dll
+F:\Project\AGDProject\AGD.Membership\bin\Debug\AGD.Encryption.dll
+F:\Project\AGDProject\AGD.Membership\bin\Debug\AGD.BusinessLogic.pdb
+F:\Project\AGDProject\AGD.Membership\bin\Debug\AGD.CommandAdapter.pdb
+F:\Project\AGDProject\AGD.Membership\bin\Debug\AGD.DataAccess.pdb
+F:\Project\AGDProject\AGD.Membership\bin\Debug\AGD.Encryption.pdb
+F:\Project\AGDProject\AGD.Membership\obj\Debug\AGD.Membership.csprojResolveAssemblyReference.cache
+F:\Project\AGDProject\AGD.Membership\obj\Debug\AGD.Membership.dll
+F:\Project\AGDProject\AGD.Membership\obj\Debug\AGD.Membership.pdb

@@ -1,0 +1,5 @@
+F:\Project\AGDProject\AGD.Encryption\bin\Debug\AGD.Encryption.dll
+F:\Project\AGDProject\AGD.Encryption\bin\Debug\AGD.Encryption.pdb
+F:\Project\AGDProject\AGD.Encryption\obj\Debug\AGD.Encryption.dll
+F:\Project\AGDProject\AGD.Encryption\obj\Debug\AGD.Encryption.pdb
+F:\Project\AGDProject\AGD.Encryption\obj\Debug\ADP.Encryption.csprojResolveAssemblyReference.cache

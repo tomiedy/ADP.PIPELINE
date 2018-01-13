@@ -1,0 +1,9 @@
+F:\Project\AGDProject\AGD.DataAccess\bin\Debug\AGD.DataAccess.dll
+F:\Project\AGDProject\AGD.DataAccess\bin\Debug\AGD.DataAccess.pdb
+F:\Project\AGDProject\AGD.DataAccess\bin\Debug\AGD.CommandAdapter.dll
+F:\Project\AGDProject\AGD.DataAccess\bin\Debug\AGD.Encryption.dll
+F:\Project\AGDProject\AGD.DataAccess\bin\Debug\AGD.CommandAdapter.pdb
+F:\Project\AGDProject\AGD.DataAccess\bin\Debug\AGD.Encryption.pdb
+F:\Project\AGDProject\AGD.DataAccess\obj\Debug\ADP.DataAccess.csprojResolveAssemblyReference.cache
+F:\Project\AGDProject\AGD.DataAccess\obj\Debug\AGD.DataAccess.dll
+F:\Project\AGDProject\AGD.DataAccess\obj\Debug\AGD.DataAccess.pdb

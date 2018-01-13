@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{6930E262-67BF-418E-B21B-2263654828C8}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AGD.Membership</RootNamespace>
+    <AssemblyName>AGD.Membership</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Data\RoleData.cs" />
+    <Compile Include="Data\UserData.cs" />
+    <Compile Include="Entity\MembershipRole.cs" />
+    <Compile Include="Entity\MembershipUser.cs" />
+    <Compile Include="Entity\MembershipUserRole.cs" />
+    <Compile Include="LoginManager.cs" />
+    <Compile Include="MembershipManager.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AGD.BusinessLogic\ADP.BusinessLogic.csproj">
+      <Project>{04dee3e0-002d-4d0f-9753-537bea0fcd64}</Project>
+      <Name>ADP.BusinessLogic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AGD.CommandAdapter\ADP.CommandAdapter.csproj">
+      <Project>{6a55f78c-f2c1-45f7-9a95-fd1764bcb4f3}</Project>
+      <Name>ADP.CommandAdapter</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AGD.DataAccess\ADP.DataAccess.csproj">
+      <Project>{3fca131d-3f80-422d-858a-1c6dfe7c67ec}</Project>
+      <Name>ADP.DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AGD.Encryption\ADP.Encryption.csproj">
+      <Project>{4594897a-08ad-4bd0-968b-de15e585be72}</Project>
+      <Name>ADP.Encryption</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
