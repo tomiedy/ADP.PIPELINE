@@ -7,8 +7,8 @@
     <ProjectGuid>{04DEE3E0-002D-4D0F-9753-537BEA0FCD64}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>AGD.BusinessLogic</RootNamespace>
-    <AssemblyName>AGD.BusinessLogic</AssemblyName>
+    <RootNamespace>ADP.BusinessLogic</RootNamespace>
+    <AssemblyName>ADP.BusinessLogic</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -42,10 +42,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BusinessHelpers.cs" />
+    <Compile Include="Entity\WebLoginUser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WebLoginUserBusiness.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Entity\" />
+    <ProjectReference Include="..\AGD.DataAccess\ADP.DataAccess.csproj">
+      <Project>{3fca131d-3f80-422d-858a-1c6dfe7c67ec}</Project>
+      <Name>ADP.DataAccess</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

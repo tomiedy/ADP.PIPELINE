@@ -7,8 +7,8 @@
     <ProjectGuid>{3FCA131D-3F80-422D-858A-1C6DFE7C67EC}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>AGD.DataAccess</RootNamespace>
-    <AssemblyName>AGD.DataAccess</AssemblyName>
+    <RootNamespace>ADP.DataAccess</RootNamespace>
+    <AssemblyName>ADP.DataAccess</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="DataBaseHelpers.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WebLoginUserData.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ADP.AdministratorTool\ADP.AdministratorTool.csproj">

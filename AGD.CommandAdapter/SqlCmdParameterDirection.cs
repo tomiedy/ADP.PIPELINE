@@ -1,4 +1,4 @@
-﻿namespace AGD.CommandAdapter
+﻿namespace ADP.CommandAdapter
 {
     public enum SqlCmdParameterDirection
     {

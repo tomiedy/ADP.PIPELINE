@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - ADP Project</title>
+    <!--Loading bootstrap css-->
+    <link type="text/css" rel="stylesheet" href="~/Content/css/font-open-sans.css" />
+    <link type="text/css" rel="stylesheet" href="~/Content/css/font-oswald.css" />
+    @*<link type="text/css" rel="stylesheet"
+          href="~/Content/vendors/jquery-ui-1.10.3.custom/css/ui-lightness/jquery-ui-1.10.3.custom.css">*@
+    <link type="text/css" href="~/Content/vendors/jquery-ui-1.10.4.custom/css/ui-lightness/jquery-ui-1.10.4.custom.min.css" rel="stylesheet" />
+    <link type="text/css" rel="stylesheet" href="~/Content/vendors/font-awesome/css/font-awesome.min.css">
+    <link type="text/css" rel="stylesheet" href="~/Content/vendors/bootstrap/css/bootstrap.min.css">
+    <!--Loading style vendors-->
+    <link type="text/css" rel="stylesheet" href="~/Content/vendors/animate.css/animate.min.css">
+    <link type="text/css" rel="stylesheet" href="~/Content/vendors/iCheck/skins/all.css">
+    <!--Loading style-->
+    <link type="text/css" rel="stylesheet" href="~/Content/css/themes/style1/blue-grey.css" class="default-style">
+    <link type="text/css" rel="stylesheet" href="~/Content/css/themes/style1/blue-grey.css" id="theme-change"
+          class="style-change color-change">
+    <link type="text/css" rel="stylesheet" href="~/Content/css/style-responsive.min.css">
+    <link rel="shortcut icon" href="images/favicon.ico">
+    @RenderSection("StyleSection", false)
+</head>
+<body id="signin-page">
+    @RenderBody()
+    <script src="~/Scripts/js/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/js/jquery-migrate-1.2.1.min.js"></script>
+    <script src="~/Scripts/js/jquery-ui.js"></script>
+    <!--loading bootstrap js-->
+    <script src="~/Content/vendors/bootstrap/js/bootstrap.min.js"></script>
+    <script src="~/Content/vendors/bootstrap-hover-dropdown/bootstrap-hover-dropdown.js"></script>
+    <script src="~/Scripts/js/html5shiv.js"></script>
+    <script src="~/Scripts/js/respond.min.js"></script>
+    <script src="~/Content/vendors/iCheck/icheck.min.js"></script>
+    <script src="~/Content/vendors/iCheck/custom.min.js"></script>
+    @RenderSection("ScriptSection", false)
+</body>
+</html>

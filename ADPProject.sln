@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2020
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ADPProject", "AGDProject\ADPProject.csproj", "{3042677F-142F-4E10-A617-33ABF2C64D86}"
 EndProject
@@ -16,6 +16,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ADP.Mvc.Flan", "AGD.MVC.FLAN\ADP.Mvc.Flan.csproj", "{806F11AF-2787-4132-B258-DFDB1DD57E5B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ADP.Membership", "AGD.Membership\ADP.Membership.csproj", "{6930E262-67BF-418E-B21B-2263654828C8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ADP.AdministratorTool", "ADP.AdministratorTool\ADP.AdministratorTool.csproj", "{BF7007E9-F7BC-4D7C-8E1B-396DA96773DC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,8 +53,15 @@ Global
 		{6930E262-67BF-418E-B21B-2263654828C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6930E262-67BF-418E-B21B-2263654828C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6930E262-67BF-418E-B21B-2263654828C8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BF7007E9-F7BC-4D7C-8E1B-396DA96773DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF7007E9-F7BC-4D7C-8E1B-396DA96773DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF7007E9-F7BC-4D7C-8E1B-396DA96773DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF7007E9-F7BC-4D7C-8E1B-396DA96773DC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3BE65C06-9EB1-4441-B430-17D322B99A41}
 	EndGlobalSection
 EndGlobal

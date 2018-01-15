@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Runtime.Serialization;
 
-namespace AGD.CommandAdapter
+namespace ADP.CommandAdapter
 {
     public class SqlCmdParameterCollection  : Dictionary<string, SqlCmdParameterItem>
     {

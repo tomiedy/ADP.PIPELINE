@@ -7,8 +7,8 @@
     <ProjectGuid>{6A55F78C-F2C1-45F7-9A95-FD1764BCB4F3}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>AGD.CommandAdapter</RootNamespace>
-    <AssemblyName>AGD.CommandAdapter</AssemblyName>
+    <RootNamespace>ADP.CommandAdapter</RootNamespace>
+    <AssemblyName>ADP.CommandAdapter</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

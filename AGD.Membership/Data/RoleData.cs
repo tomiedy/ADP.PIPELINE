@@ -8,11 +8,11 @@ namespace ADP.Membership.Data
     {
         public DataTable RetrieveRoleById(string idRole)
         {
-            SqlCmdBuilder cmd = DataBaseHelpers.CreateCommand();
+            SqlCmdBuilder cmd = DataBaseHelpers.CreateADPPipelineCommand();
             cmd.Query = @"SELECT *
                           FROM MST_USER_ROLE
                           WHERE ID_ROLE=:idRole";
-            cmd.AddParameter("idRole", ParameterDirection.Input, idRole);
+            cmd.AddParameter("idRole", SqlCmdParameterDirection.Input, idRole);
 
             return cmd.GetTable();
         }
@@ -23,7 +23,7 @@ namespace ADP.Membership.Data
             cmd.Query = @"SELECT *
                           FROM MST_USER_ROLE
                           WHERE NM_ROLE=:name";
-            cmd.AddParameter("name", ParameterDirection.Input, name);
+            cmd.AddParameter("name", SqlCmdParameterDirection.Input, name);
 
             return cmd.GetTable();
         }

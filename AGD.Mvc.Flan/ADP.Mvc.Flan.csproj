@@ -7,8 +7,8 @@
     <ProjectGuid>{806F11AF-2787-4132-B258-DFDB1DD57E5B}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>AGD.Mvc.Flan</RootNamespace>
-    <AssemblyName>AGD.Mvc.Flan</AssemblyName>
+    <RootNamespace>ADP.Mvc.Flan</RootNamespace>
+    <AssemblyName>ADP.Mvc.Flan</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

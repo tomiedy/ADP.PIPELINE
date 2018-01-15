@@ -7,8 +7,8 @@
     <ProjectGuid>{4594897A-08AD-4BD0-968B-DE15E585BE72}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>AGD.Encryption</RootNamespace>
-    <AssemblyName>AGD.Encryption</AssemblyName>
+    <RootNamespace>ADP.Encryption</RootNamespace>
+    <AssemblyName>ADP.Encryption</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

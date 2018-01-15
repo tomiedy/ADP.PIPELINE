@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 
 namespace ADP.CommandAdapter
@@ -10,26 +11,29 @@ namespace ADP.CommandAdapter
 
         private const string ConnectionStringFormat = @"Server = {0}; Database={1};Uid={2}; Pwd={3}";
 
-        public List<SqlParameter> Parameters { get; private set; }
+        public SqlCmdParameterCollection Parameters { get; private set; }
         public string ConnectionString { get; private set; }
         public string Query { get; set; }
         public bool IsStoredProcedure { get; set; }
 
         public SqlCmdBuilder(string server, string dataBase, string userId, string password)
         {
-            Parameters = new List<SqlParameter>();
+            Parameters = new SqlCmdParameterCollection();
 
             ConnectionString = string.Format(ConnectionStringFormat, server, dataBase, userId, password);
             IsStoredProcedure = false;
         }
 
-        public void AddParameter(string name, System.Data.ParameterDirection direction, object value)
+        public void AddParameter(string name, SqlCmdParameterDirection direction, object value)
         {
-            SqlParameter newParameter = new SqlParameter();
-            newParameter.Direction = direction;
-            newParameter.ParameterName = name;
-            newParameter.Value = value;
-            Parameters.Add(newParameter);
+            if (value != null)
+            {
+                Parameters.Add(name, new SqlCmdParameterItem(name, direction, value));
+            }
+            else
+            {
+                Parameters.Add(name, new SqlCmdParameterItem(name, direction, DBNull.Value));
+            }
         }
 
         public int ExecuteNonQueryWithoutTransactionOperation()
@@ -212,8 +216,24 @@ namespace ADP.CommandAdapter
                 }
                 if (Parameters.Count > 0)
                 {
-                    foreach (SqlParameter param in Parameters)
+                    foreach (KeyValuePair<string, SqlCmdParameterItem> iParam in Parameters)
                     {
+                        SqlParameter param = new SqlParameter(iParam.Key, iParam.Value.Value);
+                        switch (iParam.Value.Direction)
+                        {
+                            case SqlCmdParameterDirection.Output:
+                                param.Direction = ParameterDirection.Output;
+                                break;
+                            case SqlCmdParameterDirection.InputOutput:
+                                param.Direction = ParameterDirection.InputOutput;
+                                break;
+                            case SqlCmdParameterDirection.ReturnValue:
+                                param.Direction = ParameterDirection.ReturnValue;
+                                break;
+                            default:
+                                param.Direction = ParameterDirection.Input;
+                                break;
+                        }
                         cmd.Parameters.Add(param);
                     }
                 }

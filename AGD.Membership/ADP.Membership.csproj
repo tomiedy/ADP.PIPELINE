@@ -7,8 +7,8 @@
     <ProjectGuid>{6930E262-67BF-418E-B21B-2263654828C8}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>AGD.Membership</RootNamespace>
-    <AssemblyName>AGD.Membership</AssemblyName>
+    <RootNamespace>ADP.Membership</RootNamespace>
+    <AssemblyName>ADP.Membership</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

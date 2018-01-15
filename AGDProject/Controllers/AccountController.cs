@@ -1,14 +1,17 @@
-﻿using System;
-using System.Globalization;
-using System.Linq;
-using System.Security.Claims;
-using System.Threading.Tasks;
-using System.Web;
-using System.Web.Mvc;
+﻿using ADP.Membership;
+using ADP.Membership.Entity;
+using ADPProject.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
-using ADPProject.Models;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Globalization;
+using System.Linq;
+using System.Threading.Tasks;
+using System.Web;
+using System.Web.Mvc;
 
 namespace ADPProject.Controllers
 {
@@ -18,11 +21,14 @@ namespace ADPProject.Controllers
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
 
+        public IFormsAuthenticationService FormsService { get; set; }
+        public IMembershipService MembershipService { get; set; }
+
         public AccountController()
         {
         }
 
-        public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager )
+        public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)
         {
             UserManager = userManager;
             SignInManager = signInManager;
@@ -34,9 +40,9 @@ namespace ADPProject.Controllers
             {
                 return _signInManager ?? HttpContext.GetOwinContext().Get<ApplicationSignInManager>();
             }
-            private set 
-            { 
-                _signInManager = value; 
+            private set
+            {
+                _signInManager = value;
             }
         }
 
@@ -57,8 +63,18 @@ namespace ADPProject.Controllers
         [AllowAnonymous]
         public ActionResult Login(string returnUrl)
         {
-            ViewBag.ReturnUrl = returnUrl;
-            return View();
+            UserViewModel model = new UserViewModel();
+
+            if (string.IsNullOrEmpty(returnUrl) && Request.UrlReferrer != null)
+            {
+                returnUrl = Server.UrlEncode(Request.UrlReferrer.PathAndQuery);
+            }
+
+            if (Url.IsLocalUrl(returnUrl) && !string.IsNullOrEmpty(returnUrl))
+            {
+                ViewBag.ReturnUrl = returnUrl;
+            }
+            return View(model);
         }
 
         //
@@ -66,29 +82,47 @@ namespace ADPProject.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Login(LoginViewModel model, string returnUrl)
+        public async Task<ActionResult> Login(UserViewModel model, string returnUrl)
         {
-            if (!ModelState.IsValid)
+            string userName = string.IsNullOrEmpty(model.Username) ? string.Empty : model.Username.ToUpper();
+            ADP.BusinessLogic.Entity.WebLoginUser webLoginUser = ADP.BusinessLogic.WebLoginUserBusiness.RetrieveWebLoginUserByUsername(userName).FirstOrDefault();
+
+            if (ModelState.IsValid)
             {
-                return View(model);
+                if (webLoginUser != null)
+                {
+                    FormsService.SignIn(model.Username, true);
+                    Session["Username"] = model.Username.ToUpper();
+                    //Session["ID"] = Guid.NewGuid();
+                    if (MembershipService.ValidateUser(model.Username, model.Password))
+                    {
+                        string decodeUrl = "";
+                        if (!string.IsNullOrEmpty(model.ReturnUrl))
+                        {
+                            decodeUrl = Server.UrlDecode(model.ReturnUrl);
+                        }
+
+                        if (Url.IsLocalUrl(decodeUrl))
+                        {
+                            return Redirect(decodeUrl);
+                        }
+                        else
+                        {
+                            return RedirectToAction("Index", "Home");
+                        }
+                    }
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Maaf username atau password salah, Mohon ulangi lagi.");
+                }
+            }
+            else
+            {
+                ModelState.AddModelError("", "Maaf username atau password salah, Mohon ulangi lagi.");
             }
 
-            // This doesn't count login failures towards account lockout
-            // To enable password failures to trigger account lockout, change to shouldLockout: true
-            var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);
-            switch (result)
-            {
-                case SignInStatus.Success:
-                    return RedirectToLocal(returnUrl);
-                case SignInStatus.LockedOut:
-                    return View("Lockout");
-                case SignInStatus.RequiresVerification:
-                    return RedirectToAction("SendCode", new { ReturnUrl = returnUrl, RememberMe = model.RememberMe });
-                case SignInStatus.Failure:
-                default:
-                    ModelState.AddModelError("", "Invalid login attempt.");
-                    return View(model);
-            }
+            return View(model);
         }
 
         //
@@ -120,7 +154,7 @@ namespace ADPProject.Controllers
             // If a user enters incorrect codes for a specified amount of time then the user account 
             // will be locked out for a specified amount of time. 
             // You can configure the account lockout settings in IdentityConfig
-            var result = await SignInManager.TwoFactorSignInAsync(model.Provider, model.Code, isPersistent:  model.RememberMe, rememberBrowser: model.RememberBrowser);
+            var result = await SignInManager.TwoFactorSignInAsync(model.Provider, model.Code, isPersistent: model.RememberMe, rememberBrowser: model.RememberBrowser);
             switch (result)
             {
                 case SignInStatus.Success:
@@ -155,8 +189,8 @@ namespace ADPProject.Controllers
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
-                    await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
-                    
+                    await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+
                     // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
                     // Send an email with this link
                     // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
@@ -422,6 +456,123 @@ namespace ADPProject.Controllers
 
             base.Dispose(disposing);
         }
+
+        #region Services
+        public interface IMembershipService
+        {
+            int MinPasswordLength { get; }
+
+            bool ValidateUser(string username, string password);
+            //string CreateUser(string kdOnline, string uName, string passw, string nama, string alamat, string telepon, string email, string idroles, int isActivated);
+            //string DeleteUser(string id);
+            //bool IsChangePassword(string username, string oldPassword, string newPassword);
+            //string CreateRole(string roles);
+            //string UpdateRole(string id, string roles);
+            //string DeleteRole(string id);
+            string GetRoleId(string name);
+            ADP.Membership.Entity.MembershipRole GetRole(string id);
+            List<MembershipUser> RetrieveUsers(string username);
+            List<MembershipRole> RetrieveRoles(string role);
+            List<MembershipUserRole> RetrieveUserRole(string username);
+        }
+
+        public class AccountMembershipService : IMembershipService
+        {
+            public int MinPasswordLength
+            {
+                get
+                {
+                    return 6;
+                }
+            }
+
+            public bool ValidateUser(string username, string password)
+            {
+                return LoginManager.Instance.Login(username, password);
+            }
+
+            public string GetRoleId(string name)
+            {
+                return MembershipManager.Instance.GetRoles(name)[0].Id_Role.ToString();
+            }
+
+            public MembershipRole GetRole(string id)
+            {
+                List<MembershipRole> result = MembershipManager.Instance.GetRoles(id);
+
+                return (result != null && result.Count > 0) ? result[0] : null;
+            }
+
+            public List<MembershipUser> RetrieveUsers(string username)
+            {
+                return MembershipManager.Instance.GetUsers(username);
+            }
+
+            public List<MembershipRole> RetrieveRoles(string role)
+            {
+                return MembershipManager.Instance.GetRolesByName(role);
+            }
+
+            public List<MembershipUserRole> RetrieveUserRole(string username)
+            {
+                return MembershipManager.Instance.RetrieveAllUserRole((username));
+            }
+        }
+
+        public interface IFormsAuthenticationService
+        {
+            void SignIn(string userName, bool createPersistentCookie);
+            void SignOut();
+        }
+
+        public class FormsAuthenticationService : IFormsAuthenticationService
+        {
+            public void SignIn(string userName, bool createPersistentCookie)
+            {
+                if (string.IsNullOrEmpty(userName)) throw new ArgumentException("Value cannot be null or empty.", "userName");
+                System.Web.Security.FormsAuthentication.SetAuthCookie(userName, createPersistentCookie);
+            }
+
+            public void SignOut()
+            {
+                System.Web.Security.FormsAuthentication.SignOut();
+                ADP.Membership.LoginManager.Instance.Logout();
+            }
+        }
+        #endregion
+
+        #region Validation
+        [AttributeUsage(AttributeTargets.Field | AttributeTargets.Property, AllowMultiple = false, Inherited = true)]
+        public sealed class ValidatePasswordLengthAttribute : ValidationAttribute, IClientValidatable
+        {
+            private const string _defaultErrorMessage = "'{0}' minimal panjangnya harus {1} karakter.";
+            private readonly int _minCharacters = 6;
+
+            public ValidatePasswordLengthAttribute()
+                : base(_defaultErrorMessage)
+            {
+            }
+
+            public override string FormatErrorMessage(string name)
+            {
+                return String.Format(CultureInfo.CurrentCulture, ErrorMessageString,
+                    name, _minCharacters);
+            }
+
+            public override bool IsValid(object value)
+            {
+                string valueAsString = value as string;
+                return (valueAsString != null && valueAsString.Length >= _minCharacters);
+            }
+
+            public IEnumerable<ModelClientValidationRule> GetClientValidationRules(ModelMetadata metadata, ControllerContext context)
+            {
+                return new[]{
+                new ModelClientValidationStringLengthRule(FormatErrorMessage(metadata.GetDisplayName()), _minCharacters, int.MaxValue)
+            };
+            }
+        }
+        #endregion
 
         #region Helpers
         // Used for XSRF protection when adding external logins

@@ -9,7 +9,11 @@ namespace ADPProject.Controllers
     public class HomeController : Controller
     {
         public ActionResult Index()
-        { ADAD
+        {
+            if (Session["Username"] == null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
             return View();
         }
 

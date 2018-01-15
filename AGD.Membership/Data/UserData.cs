@@ -14,29 +14,29 @@ namespace ADP.Membership.Data
     {
         public DataTable RetrieveUser(string uName)
         {
-            SqlCmdBuilder cmd = DataBaseHelpers.CreateCommand();
+            SqlCmdBuilder cmd = DataBaseHelpers.CreateADPPipelineCommand();
             cmd.Query = @"SELECT *
                           FROM MST_USER
-                          WHERE UPPER(USERNAME)=:uName";
-            cmd.AddParameter("uName", ParameterDirection.Input, uName.ToUpper());
+                          WHERE UPPER(USERNAME)=?uName";
+            cmd.AddParameter("uName", SqlCmdParameterDirection.Input, uName.ToUpper());
 
             return cmd.GetTable();
         }
 
         public DataTable RetrieveUser(string uName, string pass)
         {
-            SqlCmdBuilder cmd = DataBaseHelpers.CreateCommand();
+            SqlCmdBuilder cmd = DataBaseHelpers.CreateADPPipelineCommand();
             cmd.Query = @"SELECT *
                           FROM MST_USER
-                          WHERE UPPER(USERNAME)=:uName AND PASSWORD=:pass";
-            cmd.AddParameter("uName", ParameterDirection.Input, uName.ToUpper());
-            cmd.AddParameter("pass", ParameterDirection.Input, ADP.Encryption.CryptoTools.ActionEncrypt(pass.ToUpper()));
+                          WHERE UPPER(USERNAME)=?uName AND PASSWORD=?pass";
+            cmd.AddParameter("uName", SqlCmdParameterDirection.Input, uName.ToUpper());
+            cmd.AddParameter("pass", SqlCmdParameterDirection.Input, ADP.Encryption.CryptoTools.ActionEncrypt(pass.ToUpper()));
             return cmd.GetTable();
         }
 
         public DataTable RetrieveUserRoles(string username)
         {
-            SqlCmdBuilder cmd = DataBaseHelpers.CreateCommand();
+            SqlCmdBuilder cmd = DataBaseHelpers.CreateADPPipelineCommand();
             cmd.Query = @"SELECT *
                           FROM MST_USER usr INNER JOIN MST_USER_ROLE uro " +
                         @"ON usr.id_role = uro.id_role";
@@ -44,7 +44,7 @@ namespace ADP.Membership.Data
             if (!string.IsNullOrEmpty(username))
             {
                 cmd.Query += "WHERE UPPER(usr.username)";
-                cmd.AddParameter("username", ParameterDirection.Input, username.ToUpper());
+                cmd.AddParameter("username", SqlCmdParameterDirection.Input, username.ToUpper());
             }
 
             return cmd.GetTable();
