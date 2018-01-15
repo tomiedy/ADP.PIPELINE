@@ -14,5 +14,7 @@ namespace ADP.DataAccess
             cmd.AddParameter("uName", SqlCmdParameterDirection.Input, uName.ToUpper());
             return cmd.GetTable();
         }
+
+
     }
 }
