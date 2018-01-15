@@ -6,18 +6,20 @@ namespace ADP.CommandAdapter
 {
     public class SqlCmdBuilder
     {
-        private const string ConnectionStringFormat = @"Data Source={0};Initial Catalog={1}; User ID={2};Password={3};";
+        //private const string ConnectionStringFormat = @"Data Source={0};Initial Catalog={1}; User ID={2};Password={3};";
+
+        private const string ConnectionStringFormat = @"Server = {0}; Database={1};Uid={2}; Pwd={3}";
 
         public List<SqlParameter> Parameters { get; private set; }
         public string ConnectionString { get; private set; }
         public string Query { get; set; }
         public bool IsStoredProcedure { get; set; }
 
-        public SqlCmdBuilder(string host, string dataSource, string userId, string password)
+        public SqlCmdBuilder(string server, string dataBase, string userId, string password)
         {
             Parameters = new List<SqlParameter>();
 
-            ConnectionString = string.Format(ConnectionStringFormat, host, dataSource, userId, password);
+            ConnectionString = string.Format(ConnectionStringFormat, server, dataBase, userId, password);
             IsStoredProcedure = false;
         }
 
@@ -165,8 +167,9 @@ namespace ADP.CommandAdapter
             return result;
         }
 
-        public bool TestConnection()
+        public bool TestConnection(out string errMsg)
         {
+            errMsg = string.Empty;
             bool result = true;
             using (SqlConnection conn = CreateConnection())
             {
@@ -174,9 +177,10 @@ namespace ADP.CommandAdapter
                 {
                     conn.Open();
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
                     result = false;
+                    errMsg = ex.Message;
                 }
                 finally
                 {
@@ -184,9 +188,10 @@ namespace ADP.CommandAdapter
                     {
                         CloseConnection(conn);
                     }
-                    catch (Exception)
+                    catch (Exception ex)
                     {
                         result = false;
+                        errMsg = ex.Message;
                     }
                 }
             }
