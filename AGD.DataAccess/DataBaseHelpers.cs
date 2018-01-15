@@ -23,5 +23,15 @@ namespace ADP.DataAccess
 
             return new SqlCmdBuilder(ServerHost, DatabaseName, UserID, Password);
         }
+
+        public static SqlCmdBuilder CreateADPPipelineCommand()
+        {
+            ServerHost = AdministratorTool.StringCipher.Decrypt(System.Configuration.ConfigurationManager.AppSettings["PipelineServer"], "pipeline");
+            DatabaseName = AdministratorTool.StringCipher.Decrypt(System.Configuration.ConfigurationManager.AppSettings["PipelineDatabase"], "pipeline");
+            UserID = AdministratorTool.StringCipher.Decrypt(System.Configuration.ConfigurationManager.AppSettings["PipelineUid"], "pipeline");
+            Password = AdministratorTool.StringCipher.Decrypt(System.Configuration.ConfigurationManager.AppSettings["PipelinePassword"], "pipeline");
+
+            return new SqlCmdBuilder(ServerHost, DatabaseName, UserID, Password);
+        }
     }
 }

@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{3FCA131D-3F80-422D-858A-1C6DFE7C67EC}</ProjectGuid>
+    <ProjectGuid>{BF7007E9-F7BC-4D7C-8E1B-396DA96773DC}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>AGD.DataAccess</RootNamespace>
-    <AssemblyName>AGD.DataAccess</AssemblyName>
+    <RootNamespace>ADP.AdministratorTool</RootNamespace>
+    <AssemblyName>ADP.AdministratorTool</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -31,7 +31,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
-    <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -41,25 +40,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataBaseHelpers.cs" />
+    <Compile Include="BaseCipher.cs" />
+    <Compile Include="FileCipher.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\ADP.AdministratorTool\ADP.AdministratorTool.csproj">
-      <Project>{bf7007e9-f7bc-4d7c-8e1b-396da96773dc}</Project>
-      <Name>ADP.AdministratorTool</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\AGD.CommandAdapter\ADP.CommandAdapter.csproj">
-      <Project>{6a55f78c-f2c1-45f7-9a95-fd1764bcb4f3}</Project>
-      <Name>ADP.CommandAdapter</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\AGD.Encryption\ADP.Encryption.csproj">
-      <Project>{4594897a-08ad-4bd0-968b-de15e585be72}</Project>
-      <Name>ADP.Encryption</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadata Include="Service References\" />
+    <Compile Include="StringCipher.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
