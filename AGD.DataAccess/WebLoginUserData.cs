@@ -10,10 +10,11 @@ namespace ADP.DataAccess
             SqlCmdBuilder cmd = DataBaseHelpers.CreateADPPipelineCommand();
             cmd.Query = @"SELECT USERNAME, PASSWORD
                           FROM ADP_USER
-                          WHERE UPPER(Username)=@uName AND allow_login = 0";
+                          WHERE UPPER(Username)=@uName AND allow_login = 1";
             cmd.AddParameter("uName", SqlCmdParameterDirection.Input, uName.ToUpper());
             return cmd.GetTable();
         }
+
 
 
     }
