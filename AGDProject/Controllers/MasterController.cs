@@ -1,4 +1,5 @@
-﻿using System.Web.Mvc;
+﻿using ADPProject.Models;
+using System.Web.Mvc;
 
 namespace ADPProject.Controllers
 {
@@ -13,6 +14,16 @@ namespace ADPProject.Controllers
         public ActionResult Employee()
         {
             return View();
+        }
+
+        public ActionResult Project(ProjectModels model)
+        {
+            return View(model);
+        }
+
+        public ActionResult ProjectCustomer(ProjectCustomerModels model)
+        {
+            return View(model);
         }
     }
 }

@@ -1,0 +1,91 @@
+﻿@model ADPProject.Models.ProjectModels
+@{
+    ViewBag.Title = "Project";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Project</h2>
+<div id="page-wrapper">
+    <!--BEGIN TITLE & BREADCRUMB PAGE-->
+    <div id="title-breadcrumb-option-demo" class="page-title-breadcrumb">
+        <div class="page-header pull-left">
+            <div class="page-title">Pendaftaran</div>
+        </div>
+        <ol class="breadcrumb page-breadcrumb pull-left">
+            <li>
+                <i class="fa fa-home"></i>&nbsp;@Html.ActionLink("Home", "Index", "Home")&nbsp;&nbsp;<i class="fa fa-angle-right"></i>&nbsp;&nbsp;
+            </li>
+            <li class="hidden">
+                <a href="#">Pendaftaran</a>&nbsp;&nbsp;<i class="fa fa-angle-right"></i>&nbsp;&nbsp;
+            </li>
+            <li class="active">Pendaftaran</li>
+        </ol>
+        <div class="clearfix"></div>
+    </div>
+    <!--END TITLE & BREADCRUMB PAGE--><!--BEGIN CONTENT-->
+    <div class="page-content">
+        @using (Html.BeginForm())
+        {
+            @Html.ValidationSummary(true)
+            <fieldset>
+                <legend>Register User</legend>
+                <div class="editor-label width120">
+                    @Html.LabelFor(model => model.Nama)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.Nama)
+                    @Html.ValidationMessageFor(model => model.Nama)
+                </div>
+                <div class="clear"></div>
+                <div class="editor-label width120">
+                    @Html.LabelFor(model => model.Kota)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.Kota)
+                    @Html.ValidationMessageFor(model => model.Kota)
+                </div>
+                <div class="clear"></div>
+                <div class="editor-label width120">
+                    @Html.LabelFor(model => model.Alamat)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.Alamat)
+                    @Html.ValidationMessageFor(model => model.Alamat)
+                </div>
+                <div class="clear"></div>
+                <div class="editor-label width120">
+                    @Html.LabelFor(model => model.StartDate)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.StartDate)                    
+                </div>
+                <div class="clear"></div>
+                <div class="editor-label width120">
+                    @Html.LabelFor(model => model.NoKontrak)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.NoKontrak)                    
+                </div>
+                <div class="clear"></div>
+                <div class="editor-label width120">
+                    @Html.LabelFor(model => model.NoSpk)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.NoSpk)                    
+                </div>
+                <div class="clear"></div>
+                <div class="editor-label width120">
+                    @Html.LabelFor(model => model.TelSpk)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.TelSpk)                    
+                </div>
+                <div class="clear"></div>
+                <p>
+                    <input type="submit" value="Simpan" />
+                </p>
+            </fieldset>
+        }
+    </div>
+</div>
+
