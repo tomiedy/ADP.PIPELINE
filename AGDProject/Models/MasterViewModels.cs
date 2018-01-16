@@ -27,7 +27,7 @@ namespace ADPProject.Models
         public string NoSpk { get; set; }
 
         [Display(Name = "Telp SPK")]
-        public string TelSpk { get; set; }        
+        public string TelpSpk { get; set; }        
     }
 
     public class ProjectCustomerModels

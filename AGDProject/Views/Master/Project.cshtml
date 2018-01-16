@@ -5,6 +5,74 @@
 }
 
 <h2>Project</h2>
+@section ScriptSection {
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jtable/jquery.jtable.js")"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#TableContainer').jtable({
+                title: 'ADP Project',
+                paging: true,
+                pageSize: 5,
+                sorting: true,
+                defaultSorting: 'Nama ASC',
+                messages: {
+                    //serverCommunicationError: 'salah koneksi',
+                    //noDataAvailable: 'Tidak ada data ditemukan!',
+                    pagingInfo: 'Menampilkan <b>{0}</b> - <b>{1}</b> dari <b>{2}</b> data'
+                },
+                actions: {
+                    listAction: '/Master/GetProject',
+                    updateAction: '/Master/EditProject',
+                    deleteAction: '/Master/DeleteProject'
+                },
+                fields: {
+                    Id: {
+                        key: true,
+                        title: 'ID',
+                        list: false
+                    },
+                    Nama: {
+                        title: 'Nama',
+                        width: '10%',
+                        edit: true
+                    },
+                    Kota: {
+                        title: 'Kota',
+                        width: '10%',
+                        edit: true
+                    },
+                    Alamat: {
+                        title: 'Alamat',
+                        width: '10%',
+                        edit: true
+                    },
+                    StartDate: {
+                        title: 'Start Date',
+                        width: '10%',
+                        edit: true
+                    },
+                    NoKontrak: {
+                        title: 'No Kontrak',
+                        width: '10%',
+                        edit: true
+                    },
+                    NoSpk: {
+                        title: 'No SPK',
+                        width: '10%',
+                        edit: true
+                    },
+                    TelpSpk: {
+                        title: 'Telp',
+                        width: '10%',
+                        edit: true
+                    },
+                }
+            });
+
+            $('#TableContainer').jtable('load');
+        })
+    </script>
+}
 <div id="page-wrapper">
     <!--BEGIN TITLE & BREADCRUMB PAGE-->
     <div id="title-breadcrumb-option-demo" class="page-title-breadcrumb">
@@ -57,33 +125,37 @@
                     @Html.LabelFor(model => model.StartDate)
                 </div>
                 <div class="editor-field">
-                    @Html.EditorFor(model => model.StartDate)                    
+                    @Html.EditorFor(model => model.StartDate)
                 </div>
                 <div class="clear"></div>
                 <div class="editor-label width120">
                     @Html.LabelFor(model => model.NoKontrak)
                 </div>
                 <div class="editor-field">
-                    @Html.EditorFor(model => model.NoKontrak)                    
+                    @Html.EditorFor(model => model.NoKontrak)
                 </div>
                 <div class="clear"></div>
                 <div class="editor-label width120">
                     @Html.LabelFor(model => model.NoSpk)
                 </div>
                 <div class="editor-field">
-                    @Html.EditorFor(model => model.NoSpk)                    
+                    @Html.EditorFor(model => model.NoSpk)
                 </div>
                 <div class="clear"></div>
                 <div class="editor-label width120">
-                    @Html.LabelFor(model => model.TelSpk)
+                    @Html.LabelFor(model => model.TelpSpk)
                 </div>
                 <div class="editor-field">
-                    @Html.EditorFor(model => model.TelSpk)                    
+                    @Html.EditorFor(model => model.TelpSpk)
                 </div>
                 <div class="clear"></div>
                 <p>
                     <input type="submit" value="Simpan" />
                 </p>
+            </fieldset>
+            <fieldset>
+                <div id="TableContainer" width="100%">
+                </div>
             </fieldset>
         }
     </div>
