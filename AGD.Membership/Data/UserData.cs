@@ -11,13 +11,14 @@ namespace ADP.Membership.Data
 {
     [Serializable]
     public class UserData
-    {
+    { 
+        
         public DataTable RetrieveUser(string uName)
         {
             SqlCmdBuilder cmd = DataBaseHelpers.CreateADPPipelineCommand();
             cmd.Query = @"SELECT *
-                          FROM MST_USER
-                          WHERE UPPER(USERNAME)=?uName";
+                          FROM ADP_USER
+                          WHERE UPPER(USERNAME)=@uName";
             cmd.AddParameter("uName", SqlCmdParameterDirection.Input, uName.ToUpper());
 
             return cmd.GetTable();
@@ -27,8 +28,8 @@ namespace ADP.Membership.Data
         {
             SqlCmdBuilder cmd = DataBaseHelpers.CreateADPPipelineCommand();
             cmd.Query = @"SELECT *
-                          FROM MST_USER
-                          WHERE UPPER(USERNAME)=?uName AND PASSWORD=?pass";
+                          FROM ADP_USER
+                          WHERE UPPER(USERNAME)=@uName AND PASSWORD=@pass";
             cmd.AddParameter("uName", SqlCmdParameterDirection.Input, uName.ToUpper());
             cmd.AddParameter("pass", SqlCmdParameterDirection.Input, ADP.Encryption.CryptoTools.ActionEncrypt(pass.ToUpper()));
             return cmd.GetTable();
@@ -38,7 +39,7 @@ namespace ADP.Membership.Data
         {
             SqlCmdBuilder cmd = DataBaseHelpers.CreateADPPipelineCommand();
             cmd.Query = @"SELECT *
-                          FROM MST_USER usr INNER JOIN MST_USER_ROLE uro " +
+                          FROM ADP_USER usr INNER JOIN ADP_ROLE uro " +
                         @"ON usr.id_role = uro.id_role";
 
             if (!string.IsNullOrEmpty(username))

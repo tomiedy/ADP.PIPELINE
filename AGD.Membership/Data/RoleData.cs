@@ -10,8 +10,8 @@ namespace ADP.Membership.Data
         {
             SqlCmdBuilder cmd = DataBaseHelpers.CreateADPPipelineCommand();
             cmd.Query = @"SELECT *
-                          FROM MST_USER_ROLE
-                          WHERE ID_ROLE=:idRole";
+                          FROM ADP_ROLE
+                          WHERE ID_ROLE=@idRole";
             cmd.AddParameter("idRole", SqlCmdParameterDirection.Input, idRole);
 
             return cmd.GetTable();
@@ -21,8 +21,8 @@ namespace ADP.Membership.Data
         {
             SqlCmdBuilder cmd = DataBaseHelpers.CreateCommand();
             cmd.Query = @"SELECT *
-                          FROM MST_USER_ROLE
-                          WHERE NM_ROLE=:name";
+                          FROM ADP_ROLE
+                          WHERE NAMA_ROLE=@name";
             cmd.AddParameter("name", SqlCmdParameterDirection.Input, name);
 
             return cmd.GetTable();

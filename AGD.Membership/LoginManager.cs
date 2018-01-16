@@ -46,7 +46,7 @@ namespace ADP.Membership
                     {
                         HttpContext.Current.Session.Add("Username", user.Username.ToUpper());
                         //HttpContext.Current.Session.Add("Name", user.Name);
-                        HttpContext.Current.Session.Add("Token", ADP.Encryption.CryptoTools.ActionEncrypt(String.Format("{0}_{1}", user.Username.ToUpper(), user.Password)));
+                        HttpContext.Current.Session.Add("Token", ADP.Encryption.CryptoTools.ActionEncrypt(string.Format("{0}_{1}", user.Username.ToUpper(), user.Password)));
                     }
                 }
             }

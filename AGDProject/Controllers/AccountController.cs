@@ -24,6 +24,15 @@ namespace ADPProject.Controllers
         public IFormsAuthenticationService FormsService { get; set; }
         public IMembershipService MembershipService { get; set; }
 
+        protected override void Initialize(System.Web.Routing.RequestContext requestContext)
+        {
+            //repository = new UserRepository();
+            if (FormsService == null) { FormsService = new FormsAuthenticationService(); }
+            if (MembershipService == null) { MembershipService = new AccountMembershipService(); }
+
+            base.Initialize(requestContext);
+        }
+
         public AccountController()
         {
         }
