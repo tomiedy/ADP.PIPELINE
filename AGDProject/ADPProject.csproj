@@ -208,6 +208,7 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\MasterViewModels.cs" />
     <Compile Include="Models\NavigationModels.cs" />
     <Compile Include="Models\UserViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -2813,6 +2814,8 @@
     <Content Include="Views\Shared\_LayoutLogin.cshtml" />
     <Content Include="Views\Master\Index.cshtml" />
     <Content Include="Views\Master\Employee.cshtml" />
+    <Content Include="Views\Master\Project.cshtml" />
+    <Content Include="Views\Master\ProjectCustomer.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

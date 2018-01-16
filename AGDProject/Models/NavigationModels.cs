@@ -1,9 +1,7 @@
-﻿using ADP.Membership;
+using ADP.Membership;
 using ADP.Mvc.Flan.EnhancedMenu;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 
 namespace ADPProject.Models
 {
@@ -14,23 +12,32 @@ namespace ADPProject.Models
             get
             {
                 List<NavigationItem> tempLinks = new List<NavigationItem>();
-                
-                #region Pendaftaran
+
+                #region initialize menu
+                tempLinks.Add(new NavigationItem
+                {
+                    Id = "Master",
+                    Text = "Master",
+                    Role = string.Empty,
+                    ControllerName = "Master",
+                    ActionName = "Index",
+                    Visible = true,
+                    IsLoginNeed = true
+                    //IconBootstrap = "fa fa-files-o"
+                });
+
                 tempLinks.Add(new NavigationItem
                 {
                     Id = "daftarId",
                     Text = "Pendaftaran",
                     Role = string.Empty,
-                    ControllerName = "Master",
-                    ActionName = "Employee",
+                    ControllerName = "Pendaftaran",
+                    ActionName = "Index",
                     Visible = true,
                     IsLoginNeed = true,
                     IconBootstrap = "fa fa-files-o"
                 });
-                #endregion
 
-
-                #region Profil
                 tempLinks.Add(new NavigationItem
                 {
                     Id = "profilId",
@@ -42,9 +49,7 @@ namespace ADPProject.Models
                     IsLoginNeed = true,
                     IconBootstrap = "fa fa-users"
                 });
-                #endregion
 
-                #region History
                 tempLinks.Add(new NavigationItem
                 {
                     Id = "historyId",
@@ -57,7 +62,36 @@ namespace ADPProject.Models
                     IconBootstrap = "fa fa-list"
                 });
                 #endregion
-                
+
+                #region Master
+                tempLinks.Add(new NavigationItem
+                {
+                    Id = "Employee",
+                    Text = "Employee",
+                    Role = string.Empty,
+                    ControllerName = "Master",
+                    ActionName = "Employee",
+                    Visible = true,
+                    IsLoginNeed = true,
+                    IconBootstrap = "fa fa-list",
+                    Parent = tempLinks.Where(nav => nav.Id == "Master").ToList()[0]
+                });
+
+                tempLinks.Add(new NavigationItem
+                {
+                    Id = "Project",
+                    Text = "Project",
+                    Role = string.Empty,
+                    ControllerName = "Master",
+                    ActionName = "Project",
+                    Visible = true,
+                    IsLoginNeed = true,
+                    IconBootstrap = "fa fa-files-o",
+                    Parent = tempLinks.Where(nav => nav.Id == "Master").ToList()[0]
+                });
+                #endregion                
+
+
 
                 string role = string.Empty;
                 if (LoginManager.Instance.IsLoggedIn)

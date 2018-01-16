@@ -36,13 +36,18 @@ namespace ADPProject.Controllers
                     ModelState.AddModelError("", ex.Message);
                 }               
             }
-
-            //if(!string.IsNullOrEmpty(model.Username))
-            //{
-            //    ModelState.AddModelError("", "Username Tidak Ditemukan.");
-            //}
+            
             return View(model);
         }
 
+        public ActionResult Project(ProjectModels model)
+        {
+            return View(model);
+        }
+
+        public ActionResult ProjectCustomer(ProjectCustomerModels model)
+        {
+            return View(model);
+        }
     }
 }
