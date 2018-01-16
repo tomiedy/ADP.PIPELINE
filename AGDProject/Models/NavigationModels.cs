@@ -21,8 +21,8 @@ namespace ADPProject.Models
                     Id = "daftarId",
                     Text = "Pendaftaran",
                     Role = string.Empty,
-                    ControllerName = "Pendaftaran",
-                    ActionName = "Index",
+                    ControllerName = "Master",
+                    ActionName = "Employee",
                     Visible = true,
                     IsLoginNeed = true,
                     IconBootstrap = "fa fa-files-o"

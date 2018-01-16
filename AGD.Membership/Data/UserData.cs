@@ -11,8 +11,8 @@ namespace ADP.Membership.Data
 {
     [Serializable]
     public class UserData
-    { 
-        
+    {
+
         public DataTable RetrieveUser(string uName)
         {
             SqlCmdBuilder cmd = DataBaseHelpers.CreateADPPipelineCommand();
@@ -50,5 +50,8 @@ namespace ADP.Membership.Data
 
             return cmd.GetTable();
         }
+                
     }
+
 }
+

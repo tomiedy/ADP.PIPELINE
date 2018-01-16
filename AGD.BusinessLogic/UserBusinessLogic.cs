@@ -1,17 +1,17 @@
-﻿using System;
-using ADP.BusinessLogic;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using AGD.DataAccess;
 
 namespace ADP.BusinessLogic
 {
-    class UserBusinessLogic
+    public class UserBusinessLogic
     {
-        public static bool InsertUser(string username, string password)
+        public static bool CreateEmployee(string nama, string tempLahir, string tglLahir, string noTlp, string email, string jabatan)
         {
-            return false;
+            return new UserDataAccess().CreateEmployee(nama, tempLahir, tglLahir, noTlp, email, jabatan);
+        }
+
+        public static bool CreateUser(string Username, string Password, string IdRole)
+        {
+            return new UserDataAccess().CreateUser(Username, Password, IdRole);
         }
 
     }

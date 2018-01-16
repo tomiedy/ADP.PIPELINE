@@ -62,6 +62,8 @@ namespace ADP.Membership
         {
             return dataRole.RetrieveRoleByName(role).AsEnumerable<MembershipRole>().ToList();
         }
-        #endregion        
+        #endregion
+
+
     }
 }

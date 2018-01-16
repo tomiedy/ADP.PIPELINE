@@ -33,7 +33,7 @@ namespace ADPProject.Models
 
         [DataType(DataType.Password)]
         [Display(Name = "Confirm Password")]
-        [Compare ("Password" ,ErrorMessage ="Password dan Confirm Password Tidak Sama")]
+        [Compare ("Password",ErrorMessage ="Password dan Confirm Password Tidak Sama")]
         public string ConfirmPassword { get; set; }
                 
         [Display(Name = "Tempat Lahir")]
@@ -50,11 +50,15 @@ namespace ADPProject.Models
         [Display(Name = "Email")]
         public string Email { get; set; }
 
+        [Required(ErrorMessage = "Jabatan Harus Diisi")]
         [Display (Name = "Jabatan")]
         public string Jabatan { get; set; }
 
+        [Display(Name = "role")]
+        public string IdRole { get; set; }
+        
         public string is_active { get; set; }
+
     }
-
-
+       
 }

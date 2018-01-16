@@ -1,8 +1,126 @@
-﻿
-@{
-    ViewBag.Title = "Employee";
-    Layout = "~/Views/Shared/_Layout.cshtml";
-}
+﻿@using System.Web.Mvc.Html
+@model ADPProject.Models.RegisterUserModel
 
-<h2>Employee</h2>
+@{
+    ViewBag.Title = "Index";
+}
+<div id="page-wrapper">
+    <!--BEGIN TITLE & BREADCRUMB PAGE-->
+    <div id="title-breadcrumb-option-demo" class="page-title-breadcrumb">
+        <div class="page-header pull-left">
+            <div class="page-title">PENDAFTARAN</div>
+        </div>
+        <ol class="breadcrumb page-breadcrumb pull-left">
+            <li>
+                <i class="fa fa-home"></i>&nbsp;@Html.ActionLink("Home", "Index", "Home")&nbsp;&nbsp;<i class="fa fa-angle-right"></i>&nbsp;&nbsp;
+            </li>
+            <li class="hidden">
+                <a href="#">Pendaftaran</a>&nbsp;&nbsp;<i class="fa fa-angle-right"></i>&nbsp;&nbsp;
+            </li>
+            <li class="active">Pendaftaran</li>
+        </ol>
+        <div class="clearfix"></div>
+    </div>
+    <!--END TITLE & BREADCRUMB PAGE--><!--BEGIN CONTENT-->
+    <div class="page-content">
+        @using (Html.BeginForm())
+        {
+            @Html.ValidationSummary(true)
+            <fieldset>
+                <legend>Register User</legend>
+                <div class="editor-label width120">
+                    @Html.LabelFor(model => model.Nama)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.Nama)
+                    @Html.ValidationMessageFor(model => model.Nama)
+                </div>
+                <div class="clear"></div>
+                <div class="editor-label width120">
+                    @Html.LabelFor(model => model.Username)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.Username)
+                    @Html.ValidationMessageFor(model => model.Username)
+                </div>
+                <div class="clear"></div>
+                <div class="editor-label width120">
+                    @Html.LabelFor(model => model.Password)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.Password)
+                    @Html.ValidationMessageFor(model => model.Password)
+                </div>
+                <div class="clear"></div>
+                <div class="editor-label width120">
+                    @Html.LabelFor(model => model.ConfirmPassword)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.ConfirmPassword)
+                    @Html.ValidationMessageFor(model => model.ConfirmPassword)
+                </div>
+                <div class="clear"></div>
+                <div class="editor-label width120">
+                    @Html.LabelFor(model => model.TempatLahir)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.TempatLahir)                   
+                </div>
+                <div class="clear"></div>
+                <div class="editor-label width120">
+                    @Html.LabelFor(model => model.TanggalLahir)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.TanggalLahir)                  
+                <div class="clear"></div>
+                <div class="editor-label width120">
+                    @Html.LabelFor(model => model.NoTelpon)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.NoTelpon)
+                    @Html.ValidationMessageFor(model => model.NoTelpon)
+                </div>
+                <div class="clear"></div>
+                <div class="editor-label width120">
+                    @Html.LabelFor(model => model.Email)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.Email)
+                    @Html.ValidationMessageFor(model => model.Email)
+                </div>
+                <div class="clear"></div>
+                <div class="editor-label width120">
+                    @Html.LabelFor(model => model.Jabatan)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.Jabatan)
+                    @Html.ValidationMessageFor(model => model.Jabatan)
+                </div>
+                <div class="clear"></div>    
+                <div class="editor-label width120">
+                    @Html.LabelFor(model => model.IdRole)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.IdRole)                   
+                </div>
+                <div class="clear"></div>      
+                <p>
+                    <input type="submit" value="Simpan" />
+                </p>
+            </fieldset>
+            <fieldset>
+                <legend>List Daftar</legend>
+                <br />
+                <div class="outerGrid">
+                    <div id="TableContainer" width="100%">
+                    </div>
+                    <br />
+                    <div id="TableContainer1" width="100%">
+                    </div>
+                    <br />
+                </div>
+            </fieldset>
+        }
+    </div>
+</div>
 
