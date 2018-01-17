@@ -1,7 +1,6 @@
 ﻿using ADP.BusinessLogic;
 using ADP.BusinessLogic.Entity;
 using ADPProject.Models;
-using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -98,7 +97,6 @@ namespace ADPProject.Controllers
 
         public ActionResult Project(ProjectModels model)
         {
-            model.StartDate = DateTime.Now.ToString();
             return View(model);
         }
 
@@ -109,7 +107,6 @@ namespace ADPProject.Controllers
             {
                 List<Project> lstProject = new List<Project>();
                 //Get Data List Project From DB
-                lstProject = ProjectBusiness.GetAllProject();
 
                 //Paging
                 var resultCount = lstProject.Count;
