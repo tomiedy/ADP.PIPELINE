@@ -26,41 +26,41 @@ namespace ADPProject.Models
                     //IconBootstrap = "fa fa-files-o"
                 });
 
-                //tempLinks.Add(new NavigationItem
-                //{
-                //    Id = "daftarId",
-                //    Text = "Pendaftaran",
-                //    Role = string.Empty,
-                //    ControllerName = "Pendaftaran",
-                //    ActionName = "Index",
-                //    Visible = true,
-                //    IsLoginNeed = true,
-                //    IconBootstrap = "fa fa-files-o"
-                //});
+                tempLinks.Add(new NavigationItem
+                {
+                    Id = "daftarId",
+                    Text = "Pendaftaran",
+                    Role = string.Empty,
+                    ControllerName = "Pendaftaran",
+                    ActionName = "Index",
+                    Visible = true,
+                    IsLoginNeed = true,
+                    IconBootstrap = "fa fa-files-o"
+                });
 
-                //tempLinks.Add(new NavigationItem
-                //{
-                //    Id = "profilId",
-                //    Text = "Profil",
-                //    Role = string.Empty,
-                //    ControllerName = "Home",
-                //    ActionName = "profil",
-                //    Visible = true,
-                //    IsLoginNeed = true,
-                //    IconBootstrap = "fa fa-users"
-                //});
+                tempLinks.Add(new NavigationItem
+                {
+                    Id = "profilId",
+                    Text = "Profil",
+                    Role = string.Empty,
+                    ControllerName = "Home",
+                    ActionName = "profil",
+                    Visible = true,
+                    IsLoginNeed = true,
+                    IconBootstrap = "fa fa-users"
+                });
 
-                //tempLinks.Add(new NavigationItem
-                //{
-                //    Id = "historyId",
-                //    Text = "History",
-                //    Role = string.Empty,
-                //    ControllerName = "History",
-                //    ActionName = "Index",
-                //    Visible = true,
-                //    IsLoginNeed = true,
-                //    IconBootstrap = "fa fa-list"
-                //});
+                tempLinks.Add(new NavigationItem
+                {
+                    Id = "historyId",
+                    Text = "History",
+                    Role = string.Empty,
+                    ControllerName = "History",
+                    ActionName = "Index",
+                    Visible = true,
+                    IsLoginNeed = true,
+                    IconBootstrap = "fa fa-list"
+                });
                 #endregion
 
                 #region Master

@@ -1,5 +1,6 @@
 div.jtable-main-container 
 {
+    width: 230%;
   position: relative;
 }
 div.jtable-main-container div.jtable-title {
