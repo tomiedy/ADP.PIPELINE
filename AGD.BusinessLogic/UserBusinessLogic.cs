@@ -18,10 +18,5 @@ namespace ADP.BusinessLogic
             return new UserDataAccess().CreateUser(Username, Password, IdRole);
         }
 
-        public static List<Employee> GetAllEmployee()
-        {
-            return new UserDataAccess().GetEmployee().AsEnumerable<Employee>().ToList();
-        }
-
     }
 }

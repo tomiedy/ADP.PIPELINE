@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace ADP.BusinessLogic.Entity
+﻿namespace ADP.BusinessLogic.Entity
 {
     public class WebLoginUser
     {
