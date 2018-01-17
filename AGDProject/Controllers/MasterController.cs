@@ -1,6 +1,7 @@
 ﻿using ADP.BusinessLogic;
 using ADP.BusinessLogic.Entity;
 using ADPProject.Models;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -44,59 +45,30 @@ namespace ADPProject.Controllers
             return View(model);
         }
 
-        [HttpPost]
-        public JsonResult GetEmployee(int jtStartIndex = 0, int jtPageSize = 0)
+        public ActionResult Project()
         {
-            try
-            {
-                List<Employee> lstEmployee = new List<Employee>();
-                //get data list project employee from db
-                lstEmployee = UserBusinessLogic.GetAllEmployee();
-
-                //paging
-                var resultCount = lstEmployee.Count;
-                if (resultCount > 0)
-                    lstEmployee.OrderBy(m => m.Nama).Skip(jtStartIndex).Take(jtPageSize).ToList();
-
-                return Json(new { result = "OK", Records = lstEmployee, TotalRecordCount = resultCount });
-            }
-            catch(System.Exception ex)
-            {
-                return Json(new { result = "ERROR", Message = ex.Message });
-            }
+            ProjectModels model = new ProjectModels();
+            model.StartDate = DateTime.Now.ToString();
+            return View(model);
         }
 
         [HttpPost]
-        public JsonResult EditEmployee(string id, string Nama, string TempatLahir, string TanggalLahir, string NoTelpon, string Email, string Jabatan, string Aktivasi)
-        {
-            try
-            {
-                //Edit Employee
-                return Json(new { Result = "OK", Message = "Employee Update" });
-            }
-            catch (System.Exception ex)
-            {
-                return Json(new { Result = "ERROR", Message = ex.Message }); 
-            }
-        }
-
-        [HttpPost]
-        public JsonResult DeleteEmployee(string id)
-        {
-            try
-            {
-                //Delete Employee
-                return Json(new { Result = "OK", Message = "Employee Deleted" });
-            }
-            catch(System.Exception ex)
-            {
-                return Json(new { Result = "ERROR", Message = ex.Message });
-            }
-        }
-
-
         public ActionResult Project(ProjectModels model)
         {
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    DateTime tgl = Convert.ToDateTime(model.StartDate);
+                    ProjectBusiness.InsertProject(model.Nama, model.Kota, model.Alamat, tgl, model.NoKontrak, model.NoSpk, model.TelpSpk);
+
+                }
+                catch (Exception ex)
+                {
+                    ModelState.AddModelError("", ex.Message);
+                }
+            }
+
             return View(model);
         }
 
@@ -107,6 +79,7 @@ namespace ADPProject.Controllers
             {
                 List<Project> lstProject = new List<Project>();
                 //Get Data List Project From DB
+                lstProject = ProjectBusiness.GetAllProject();
 
                 //Paging
                 var resultCount = lstProject.Count;
@@ -127,29 +100,15 @@ namespace ADPProject.Controllers
             try
             {
                 //Edit Data
-
+                DateTime tgl = Convert.ToDateTime(startDate);
+                ProjectBusiness.UpdateProject(id, nama, kota, alamat, tgl, noKontrak, noSpk, telpSpk);
                 return Json(new { Result = "OK", Message = "OK" });
             }
             catch (System.Exception ex)
             {
                 return Json(new { Result = "ERROR", Message = ex.Message });
-            }            
-        }
-
-        [HttpPost]
-        public JsonResult DeleteProject (string id, string nama, string kota, string alamat, string startDate, string noKontrak, string nSpk, string telpSpk)
-        {
-            try
-            {
-                //delete data
-                return Json(new { result = "OK", Message = "Data Dihapus" });
-            }
-            catch (System.Exception ex)
-            {
-                return Json(new { result = "ERROR", Message = ex.Message });
             }
         }
-
 
         public ActionResult ProjectCustomer(ProjectCustomerModels model)
         {

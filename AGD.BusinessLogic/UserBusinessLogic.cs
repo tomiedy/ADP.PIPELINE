@@ -1,7 +1,4 @@
 ﻿using AGD.DataAccess;
-using ADP.BusinessLogic.Entity;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace ADP.BusinessLogic
 {
@@ -15,11 +12,6 @@ namespace ADP.BusinessLogic
         public static bool CreateUser(string Username, string Password, string IdRole)
         {
             return new UserDataAccess().CreateUser(Username, Password, IdRole);
-        }
-
-        public static List<Employee> GetAllEmployee()
-        {
-            return new UserDataAccess().GetEmployee().AsEnumerable<Employee>().ToList();
         }
 
     }
