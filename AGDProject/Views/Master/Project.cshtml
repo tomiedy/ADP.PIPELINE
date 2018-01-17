@@ -5,8 +5,11 @@
 }
 
 <h2>Project</h2>
+<link rel="Stylesheet" href="../../Scripts/jtable/themes/lightcolor/gray/jtable.css"
+      type="text/css" />
 @section ScriptSection {
     <script type="text/javascript" src="@Url.Content("~/Scripts/jtable/jquery.jtable.js")"></script>
+<script type="text/javascript" src="@Url.Content("~/Scripts/setDatePicker.js")"></script>
     <script type="text/javascript">
         $(document).ready(function () {
             $('#TableContainer').jtable({
@@ -77,16 +80,16 @@
     <!--BEGIN TITLE & BREADCRUMB PAGE-->
     <div id="title-breadcrumb-option-demo" class="page-title-breadcrumb">
         <div class="page-header pull-left">
-            <div class="page-title">Pendaftaran</div>
+            <div class="page-title">Master</div>
         </div>
         <ol class="breadcrumb page-breadcrumb pull-left">
             <li>
-                <i class="fa fa-home"></i>&nbsp;@Html.ActionLink("Home", "Index", "Home")&nbsp;&nbsp;<i class="fa fa-angle-right"></i>&nbsp;&nbsp;
+                <i class="fa fa-home"></i>&nbsp;@Html.ActionLink("Master", "Index", "Home")&nbsp;&nbsp;<i class="fa fa-angle-right"></i>&nbsp;&nbsp;
             </li>
             <li class="hidden">
-                <a href="#">Pendaftaran</a>&nbsp;&nbsp;<i class="fa fa-angle-right"></i>&nbsp;&nbsp;
+                <a href="#">Master</a>&nbsp;&nbsp;<i class="fa fa-angle-right"></i>&nbsp;&nbsp;
             </li>
-            <li class="active">Pendaftaran</li>
+            <li class="active">Project</li>
         </ol>
         <div class="clearfix"></div>
     </div>
@@ -109,7 +112,7 @@
                     @Html.LabelFor(model => model.Kota)
                 </div>
                 <div class="editor-field">
-                    @Html.EditorFor(model => model.Kota)
+                    @Html.TextBoxFor(model => model.Kota)
                     @Html.ValidationMessageFor(model => model.Kota)
                 </div>
                 <div class="clear"></div>
@@ -117,7 +120,7 @@
                     @Html.LabelFor(model => model.Alamat)
                 </div>
                 <div class="editor-field">
-                    @Html.EditorFor(model => model.Alamat)
+                    @Html.TextBoxFor(model => model.Alamat)
                     @Html.ValidationMessageFor(model => model.Alamat)
                 </div>
                 <div class="clear"></div>
@@ -125,28 +128,28 @@
                     @Html.LabelFor(model => model.StartDate)
                 </div>
                 <div class="editor-field">
-                    @Html.EditorFor(model => model.StartDate)
+                    @Html.TextBoxFor(model => model.StartDate)
                 </div>
                 <div class="clear"></div>
                 <div class="editor-label width120">
                     @Html.LabelFor(model => model.NoKontrak)
                 </div>
                 <div class="editor-field">
-                    @Html.EditorFor(model => model.NoKontrak)
+                    @Html.TextBoxFor(model => model.NoKontrak)
                 </div>
                 <div class="clear"></div>
                 <div class="editor-label width120">
                     @Html.LabelFor(model => model.NoSpk)
                 </div>
                 <div class="editor-field">
-                    @Html.EditorFor(model => model.NoSpk)
+                    @Html.TextBoxFor(model => model.NoSpk)
                 </div>
                 <div class="clear"></div>
                 <div class="editor-label width120">
                     @Html.LabelFor(model => model.TelpSpk)
                 </div>
                 <div class="editor-field">
-                    @Html.EditorFor(model => model.TelpSpk)
+                    @Html.TextBoxFor(model => model.TelpSpk)
                 </div>
                 <div class="clear"></div>
                 <p>
