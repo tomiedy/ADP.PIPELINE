@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace ADP.BusinessLogic.Entity
+﻿namespace ADP.BusinessLogic.Entity
 {
     public class WebLoginUser
     {
@@ -21,7 +19,7 @@ namespace ADP.BusinessLogic.Entity
        // public string Password { get; set; }
        // public string ConfirmPassword { get; set; }
         public string Tempat_Lahir { get; set; }
-        public string tgl_lahir { get; set; }
+        public DateTime tgl_lahir { get; set; }
         public string No_telp { get; set; }
         public string mail_address { get; set; }
         public string Jabatan { get; set; }

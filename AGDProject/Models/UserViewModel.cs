@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace ADPProject.Models
 {
@@ -18,7 +19,7 @@ namespace ADPProject.Models
 
     public class RegisterUserModel
     {
-        [Required(ErrorMessage = "Nama harus Diisi")]
+        [Required(ErrorMessage = "Nama Harus Diisi")]
         [Display(Name = "Nama")]
         public string Nama { get; set; }
 
@@ -40,7 +41,7 @@ namespace ADPProject.Models
         public string TempatLahir { get; set; }
 
         [Display(Name = "Tanggal Lahir")]
-        public string TanggalLahir { get; set; }
+        public DateTime TanggalLahir { get; set; }
 
         [Display (Name = "No Telpon")]
         public string NoTelpon { get; set; }
