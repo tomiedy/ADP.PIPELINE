@@ -13,12 +13,13 @@ namespace ADPProject.Models
         [Display(Name = "Kota")]
         public string Kota { get; set; }
 
-        [Required(ErrorMessage = "Alamat Harus Diisi")]        
+        [Required(ErrorMessage = "Alamat Harus Diisi")]
         [Display(Name = "Alamat")]
         public string Alamat { get; set; }
-                
-        [Display(Name = "Start Date")]        
-        public DateTime StartDate { get; set; }
+
+        [DataType(DataType.Date, ErrorMessage = "Tanggal terima awal harus diisi dengan tanggal (format: MM/dd/yyyy)")]
+        [Display(Name = "Start Date")]
+        public string StartDate { get; set; }
 
         [Display(Name = "No. Kontrak")]
         public string NoKontrak { get; set; }
@@ -27,7 +28,7 @@ namespace ADPProject.Models
         public string NoSpk { get; set; }
 
         [Display(Name = "Telp SPK")]
-        public string TelpSpk { get; set; }        
+        public string TelpSpk { get; set; }
     }
 
     public class ProjectCustomerModels
