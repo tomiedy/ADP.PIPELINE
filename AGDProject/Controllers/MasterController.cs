@@ -1,11 +1,10 @@
 ﻿using ADP.BusinessLogic;
 using ADP.BusinessLogic.Entity;
-using ADP.Membership.Entity;
 using ADPProject.Models;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web.Mvc;
-using System.Data;
 
 namespace ADPProject.Controllers
 {
