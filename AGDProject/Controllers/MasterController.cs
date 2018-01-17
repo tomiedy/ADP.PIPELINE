@@ -44,9 +44,30 @@ namespace ADPProject.Controllers
             return View(model);
         }
 
+        public ActionResult Project()
+        {
+            ProjectModels model = new ProjectModels();
+            model.StartDate = DateTime.Now.ToString();
+            return View(model);
+        }
+
+        [HttpPost]
         public ActionResult Project(ProjectModels model)
         {
-            model.StartDate = DateTime.Now.ToString();
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    DateTime tgl = Convert.ToDateTime(model.StartDate);
+                    ProjectBusiness.InsertProject(model.Nama, model.Kota, model.Alamat, tgl, model.NoKontrak, model.NoSpk, model.TelpSpk);
+
+                }
+                catch (Exception ex)
+                {
+                    ModelState.AddModelError("", ex.Message);
+                }
+            }
+
             return View(model);
         }
 
@@ -78,7 +99,8 @@ namespace ADPProject.Controllers
             try
             {
                 //Edit Data
-
+                DateTime tgl = Convert.ToDateTime(startDate);
+                ProjectBusiness.UpdateProject(id, nama, kota, alamat, tgl, noKontrak, noSpk, telpSpk);
                 return Json(new { Result = "OK", Message = "OK" });
             }
             catch (System.Exception ex)
