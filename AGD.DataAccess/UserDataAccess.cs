@@ -8,7 +8,7 @@ namespace AGD.DataAccess
     public class UserDataAccess
     {
 
-        public bool CreateEmployee(string nama, string tempLahir, string tglLahir, string noTlp, string email, string jabatan)
+        public bool CreateEmployee(string nama, string tempLahir, DateTime tglLahir, string noTlp, string email, string jabatan)
         {
             SqlCmdBuilder cmd = DataBaseHelpers.CreateADPPipelineCommand();
             cmd.Query = @"INSERT INTO ADP_EMPLOYEE (ID_EMPLOYEE, NAMA, TEMPAT_LAHIR, TGL_LAHIR, NO_TELP, MAIL_ADDRESS, JABATAN)

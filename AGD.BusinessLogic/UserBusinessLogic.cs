@@ -2,12 +2,13 @@
 using ADP.BusinessLogic.Entity;
 using System.Collections.Generic;
 using System.Linq;
+using System;
 
 namespace ADP.BusinessLogic
 {
     public class UserBusinessLogic
     {
-        public static bool CreateEmployee(string nama, string tempLahir, string tglLahir, string noTlp, string email, string jabatan)
+        public static bool CreateEmployee(string nama, string tempLahir, DateTime tglLahir, string noTlp, string email, string jabatan)
         {
             return new UserDataAccess().CreateEmployee(nama, tempLahir, tglLahir, noTlp, email, jabatan);
         }
