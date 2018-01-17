@@ -3,6 +3,78 @@
 @{
     ViewBag.Title = "Index";
 }
+
+<h2>Employee</h2>
+<link rel="Stylesheet" href="../../Scripts/jtable/themes/lightcolor/gray/jtable.css"
+      type="text/css" />
+@section ScriptSection {
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jtable/jquery.jtable.js")"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#TableContainer').jtable({
+                title: 'ADP Employee',
+                paging: true,
+                pageSize: 5,
+                sorting: true,
+                defaultSorting: 'Nama ASC',
+                messages: {
+                    //serverCommunicationError: 'salah koneksi',
+                    //noDataAvailable: 'Tidak ada data ditemukan!',
+                    pagingInfo: 'Menampilkan <b>{0}</b> - <b>{1}</b> dari <b>{2}</b> data'
+                },
+                actions: {
+                    listAction: '/Master/GetEmployee',
+                    updateAction: '/Master/EditEmployee',
+                    deleteAction: '/Master/DeleteEmployee'
+                },
+                fields: {
+                    id_employee: {
+                        key: true,
+                        title: 'ID',
+                        list: false
+                    },
+                    Nama: {
+                        title: 'Nama',
+                        width: '10%',
+                        edit: true
+                    },                  
+                    Tempat_Lahir: {
+                        title: 'Tempat Lahir',
+                        width: '10%',
+                        edit: true
+                    },
+                    tgl_lahir: {
+                        title: 'Tanggal Lahir',
+                        width: '10%',
+                        edit: true
+                    },
+                    No_telp: {
+                        title: 'No. Telpon',
+                        width: '10%',
+                        edit: true
+                    },
+                    mail_address: {
+                        title: 'Email',
+                        width: '10%',
+                        edit: true
+                    },
+                    Jabatan: {
+                        title: 'Jabatan',
+                        width: '10%',
+                        edit: true
+                    },
+                    is_active: {
+                        title: 'Status Akun',
+                        width: '10%',
+                        edit: true
+                    },
+                }
+            });
+
+            $('#TableContainer').jtable('load');
+        })
+    </script>
+    }
 <div id="page-wrapper">
     <!--BEGIN TITLE & BREADCRUMB PAGE-->
     <div id="title-breadcrumb-option-demo" class="page-title-breadcrumb">
@@ -63,14 +135,15 @@
                     @Html.LabelFor(model => model.TempatLahir)
                 </div>
                 <div class="editor-field">
-                    @Html.EditorFor(model => model.TempatLahir)                   
+                    @Html.EditorFor(model => model.TempatLahir)
                 </div>
                 <div class="clear"></div>
                 <div class="editor-label width120">
                     @Html.LabelFor(model => model.TanggalLahir)
                 </div>
                 <div class="editor-field">
-                    @Html.EditorFor(model => model.TanggalLahir)                  
+                    @Html.EditorFor(model => model.TanggalLahir)
+                </div>
                 <div class="clear"></div>
                 <div class="editor-label width120">
                     @Html.LabelFor(model => model.NoTelpon)
@@ -95,31 +168,22 @@
                     @Html.EditorFor(model => model.Jabatan)
                     @Html.ValidationMessageFor(model => model.Jabatan)
                 </div>
-                <div class="clear"></div>    
+                <div class="clear"></div>
                 <div class="editor-label width120">
                     @Html.LabelFor(model => model.IdRole)
                 </div>
                 <div class="editor-field">
-                    @Html.EditorFor(model => model.IdRole)                   
+                    @Html.EditorFor(model => model.IdRole)
                 </div>
-                <div class="clear"></div>      
+                <div class="clear"></div>
                 <p>
                     <input type="submit" value="Simpan" />
                 </p>
             </fieldset>
             <fieldset>
-                <legend>List Daftar</legend>
-                <br />
-                <div class="outerGrid">
-                    <div id="TableContainer" width="100%">
-                    </div>
-                    <br />
-                    <div id="TableContainer1" width="100%">
-                    </div>
-                    <br />
+                <div id="TableContainer" width="100%">
                 </div>
             </fieldset>
         }
     </div>
 </div>
-

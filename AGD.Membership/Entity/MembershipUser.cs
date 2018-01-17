@@ -18,14 +18,14 @@ namespace ADP.Membership.Entity
     public class UserEmployee
     {
         public string Nama { get; set; }
-        public string Username { get; set; }
-        public string Password { get; set; }
-        public string ConfirmPassword { get; set; }
+        //public string Username { get; set; }
+        //public string Password { get; set; }
+        //public string ConfirmPassword { get; set; }
         public string TempatLahir { get; set; }
         public string TanggalLahir { get; set; }
         public string NoTelpon { get; set; }
         public string Email { get; set; }
         public string Jabatan { get; set; }
-
+                
     }
 }
